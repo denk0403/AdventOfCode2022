@@ -1,0 +1,17 @@
+[package]
+name = "day1b"
+version = "0.1.0"
+edition = "2021"
+authors = ["Dennis Kats"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[profile.dev]
+lto = true
+opt-level = 3
+
+[profile.release]
+lto = true
+opt-level = 3
+
+[dependencies]
