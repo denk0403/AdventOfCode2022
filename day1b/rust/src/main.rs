@@ -1,6 +1,6 @@
 use std::fs;
 
-const FILE_PATH: &str = "input.txt";
+const FILE_PATH: &str = "../input.txt";
 
 fn main() {
     let file_content = match fs::read_to_string(FILE_PATH) {
