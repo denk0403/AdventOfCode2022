@@ -51,7 +51,7 @@ function getRoundResult(opShape, meShape) {
 const input = readFileSync(FILE_PATH, { encoding: "utf8" });
 const lines = input.split(/\r?\n/);
 
-let my_score = 0;
+let myScore = 0;
 for (const line of lines) {
 	if (line.trim()) {
 		const [opKey, _, meKey] = line;
@@ -61,8 +61,8 @@ for (const line of lines) {
 
 		const result = getRoundResult(opShape, meShape);
 
-		my_score += RESULT_2_SCORE[result] + SHAPE_2_SCORE[meShape];
+		myScore += RESULT_2_SCORE[result] + SHAPE_2_SCORE[meShape];
 	}
 }
 
-console.log(my_score);
+console.log(myScore);
