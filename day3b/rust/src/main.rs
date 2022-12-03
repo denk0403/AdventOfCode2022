@@ -6,7 +6,7 @@ const FILE_PATH: &str = "../input.txt";
 fn main() {
     let file_content = match fs::read_to_string(FILE_PATH) {
         Ok(str) => str,
-        Err(err) => panic!("{err}"),
+        Err(err) => panic!("{}", err),
     };
 
     let mut lines = file_content
