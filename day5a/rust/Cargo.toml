@@ -15,4 +15,3 @@ lto = true
 opt-level = 3
 
 [dependencies]
-regex = "1.7.0"

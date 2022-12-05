@@ -1,4 +1,3 @@
-use regex::Regex;
 use std::fs;
 
 const FILE_PATH: &str = "../input.txt";
@@ -29,18 +28,7 @@ fn main() {
 fn parse_stack_part(stack_part: &str) -> Vec<Vec<char>> {
     stack_part
         .lines()
-        .map(|line| {
-            line.char_indices()
-                .skip(1)
-                .filter_map(|(index, char)| {
-                    if (index - 1) % 4 == 0 {
-                        Some(char)
-                    } else {
-                        None
-                    }
-                })
-                .collect()
-        })
+        .map(|line| line.chars().skip(1).step_by(4).collect())
         .collect()
 }
 
@@ -63,13 +51,13 @@ fn create_stack_from_lines(stack_lines: Vec<Vec<char>>) -> Vec<Vec<char>> {
 }
 
 fn parse_instructions(instructions_part: &str) -> Vec<Vec<usize>> {
-    let re = Regex::new(r"\d+").unwrap();
-
     instructions_part
         .lines()
         .map(|line| {
-            re.find_iter(line)
-                .map(|num_match| num_match.as_str().parse().unwrap())
+            line.split(" ")
+                .skip(1)
+                .step_by(2)
+                .map(|num| num.parse().unwrap())
                 .collect()
         })
         .collect()
